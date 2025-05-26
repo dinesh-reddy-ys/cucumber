@@ -1,20 +1,11 @@
 package steps;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.herokuapp.automation.base.BaseTest;
 import com.herokuapp.automation.pages.LoginPage;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import tests.Hooks;
 
 public class LoginSteps  {
@@ -34,6 +25,7 @@ public class LoginSteps  {
 		driver.get("https://opensource-demo.orangehrmlive.com");
 		driver.manage().window().maximize();
 		loginPage = new LoginPage(driver);
+		System.out.println("User is on the login screen");
 
 	}
 
