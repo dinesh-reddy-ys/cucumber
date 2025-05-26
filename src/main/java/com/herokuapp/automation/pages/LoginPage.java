@@ -30,7 +30,7 @@ public class LoginPage {
     @FindBy(className = "error-message")
     private WebElement errorMessage;
 
-    @FindBy(id = "welcome-message")
+    @FindBy(xpath = "//h6[@class=\"oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module\"]")
     private WebElement welcomeMessage;
 
     @FindBy(id = "remember-me")

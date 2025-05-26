@@ -10,7 +10,9 @@ import io.cucumber.junit.Cucumber;
 @CucumberOptions(
 	features = "features", // Path to feature files
 	glue = {"steps","tests"},                // Package containing step definitions
-	plugin = {"pretty", "html:target/cucumber-reports.html"}, // Report generation
+	plugin = {"pretty",
+			"html:target/cucumber-reports.html",
+	"junit:target/cucumber-reports/Cucumber.xml"}, // Report generation
 	monochrome = true                      // Makes console output readable
 	                     // Runs scenarios with this tag
 )
