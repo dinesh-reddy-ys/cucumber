@@ -19,11 +19,8 @@ public class TestRunner {
 	static {
 		System.out.print("Helloo");
 	}
-	@Test
-	public void testRunner() {
-		System.out.println("Test Runner Executed");
-	}
-	
+
+
 }
 	
 
