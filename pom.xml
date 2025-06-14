@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>Automation-Bdd</groupId>
-  <artifactId>Automation-bdd</artifactId>
+  <artifactId>selenium-cucumber-testng</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
  
@@ -11,13 +11,7 @@
     <artifactId>cucumber-java</artifactId>
     <version>7.22.1</version>
 </dependency>
-<!-- cucumber-junit -->
-<dependency>
-    <groupId>io.cucumber</groupId>
-    <artifactId>cucumber-junit</artifactId>
-    <version>7.22.1</version>
-    <scope>test</scope>
-</dependency>
+
 <!-- selenium-java -->
 <dependency>
     <groupId>org.seleniumhq.selenium</groupId>
@@ -30,8 +24,22 @@
 			<artifactId>webdrivermanager</artifactId>
 			<version>5.6.0</version>
 		</dependency>
+      <!-- SLF4J -->
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-simple</artifactId>
+          <version>2.0.9</version>
+          <scope>test</scope>
+      </dependency>
 
-  	
+<!-- TestNG -->
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.9.1</version>
+    <scope>test</scope>
+</dependency>
+
   </dependencies>
     <build>
         <plugins>
@@ -45,7 +53,7 @@
                         <include>**/TestRunner.java</include>
                     </includes>
                 </configuration>
-            </plugin>
+            </plugin><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><configuration><source>8</source><target>8</target><compilerArgs>--enable-preview</compilerArgs></configuration></plugin>
         </plugins>
     </build>
 </project>

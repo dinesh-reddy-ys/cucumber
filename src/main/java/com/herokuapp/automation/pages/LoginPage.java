@@ -27,11 +27,11 @@ public class LoginPage {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement loginButton;
 
-    @FindBy(className = "error-message")
+    @FindBy(css = ".oxd-text.oxd-text--p.oxd-alert-content-text")
     private WebElement errorMessage;
 
     @FindBy(xpath = "//h6[@class=\"oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module\"]")
-    private WebElement welcomeMessage;
+    private WebElement dashboardHeader;
 
     @FindBy(id = "remember-me")
     private WebElement rememberMeCheckbox;
@@ -46,6 +46,12 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }
 
+    /**
+     * Navigates to the login page
+     */
+    public void navigateToLoginPage() {
+        driver.get("https://opensource-demo.orangehrmlive.com");
+    }
     /**
      * Enters username in the username field
      * @param username String value to be entered as username
@@ -94,7 +100,7 @@ public class LoginPage {
     public boolean isHomePageDisplayed() {
         try {
             // Add implementation to verify specific home page elements
-            return wait.until(ExpectedConditions.urlContains("/dashboard"));
+            return wait.until(ExpectedConditions.urlContains("/dashboard/index"));
         } catch (Exception e) {
             return false;
         }
@@ -123,9 +129,9 @@ public class LoginPage {
      * Verifies if welcome message is displayed after successful login
      * @return boolean indicating if welcome message is visible
      */
-    public boolean isWelcomeMessageDisplayed() {
+    public boolean isHomePageIsDisplayed() {
         try {
-            return wait.until(ExpectedConditions.visibilityOf(welcomeMessage)).isDisplayed();
+            return wait.until(ExpectedConditions.visibilityOf(dashboardHeader)).isDisplayed();
         } catch (Exception e) {
             return false;
         }
@@ -233,7 +239,7 @@ public class LoginPage {
      */
     public boolean isLoginSuccessful() {
         try {
-            return isHomePageDisplayed() && isWelcomeMessageDisplayed();
+            return isHomePageDisplayed() && isHomePageIsDisplayed();
         } catch (Exception e) {
             return false;
         }
